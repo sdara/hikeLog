@@ -40,14 +40,14 @@ var _init = function() {
 			switch( filter ) {
 				case 'complete':
 					for( i in parks ) {
-						if( typeof( parks[i].complete ) !== 'undefined' ) {
+						if( typeof( parks[i].complete ) !== 'undefined' && parks[i].complete !== '' ) {
 							ret.push( parks[i] );
 						}
 					}
 				break;
 				case 'incomplete':
 					for( i in parks ) {
-						if( typeof( parks[i].complete ) === 'undefined' ) {
+						if( typeof( parks[i].complete ) === 'undefined' || parks[i].complete === '' ) {
 							ret.push( parks[i] );
 						}
 					}
@@ -59,7 +59,11 @@ var _init = function() {
 			}
 		//}
 		
-		return ret;
+		return ret.sort(function(a,b){
+			a = new Date(a.complete);
+			b = new Date(b.complete);
+			return a>b ? -1 : a<b ? 1 : 0;
+		});
 	}
 		
 	function initialize(filter) {

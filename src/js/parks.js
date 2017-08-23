@@ -12,6 +12,7 @@ var parks = [
 	{ park: 'Bluff Point State Park, Groton, CT', lat: 41.32601450000001, lng: -72.02864509999999, href: '325178', complete: 'July 17, 2016'},
 	{ park: 'Bolton Notch State Park, Bolton, CT', lat: 41.7937774, lng: -72.4480054, href: '445284#BoltonNotch', complete: 'April 8, 2017'},
 	{ park: 'Brainard Homestead State Park, East Haddam, CT', lat: 41.4666526, lng: -72.4624285, href: '445284#BrainardHomestead'},
+	{ park: 'Brooksvale Park, Hamden, CT,', lat: 41.453876, lng: -72.9227726, href: '', complete: 'August 20, 2017', muni: true},
 	
 	{ park: 'Camp Columbia State Forest, Morris, CT', lat: 41.6842633, lng: -73.1962245, href: '435450', letterboxing: true},
 	{ park: 'Camp Columbia State Historic Park, Morris, CT', lat: 41.6842633, lng: -73.1962245, href: '435450'},
@@ -114,7 +115,7 @@ var parks = [
 	{ park: 'Seth Low Pierrepont State Park Reserve, Ridgefield, CT', lat: 41.3249416, lng: -73.4990383, href: '325310'},
 	{ park: 'Sherwood Island State Park, Westport, CT', lat: 41.1152332, lng: -73.33073619999999, href: '325260', charge:1},
 	
-	{ park: 'Steep Rock Preserve, Washington Depot, CT', lat: 41.621509, lng: -73.3268724, href: '', muni: true},
+	{ park: 'Steep Rock Preserve, Washington Depot, CT', lat: 41.621509, lng: -73.3268724, href: '', complete: 'August 27, 2016', muni: true},
 	{ park: 'Stillwater Pond State Park, Torrington, CT', lat: 41.8522369, lng: -73.1497121, href: '445284#StillwaterPond'},
 	{ park: 'Stoddard Hill State Park, Ledyard, CT', lat: 41.4603268, lng: -72.06533379999999, href: '445284#StoddardHill'},
 	{ park: 'Stratton Brook State Park, Simsbury, CT', lat: 41.8655475, lng: -72.8323463, href: '325270', charge:1, complete: 'March 19, 2017'},
@@ -136,7 +137,16 @@ var parks = [
 	{ park: 'Wyantenock State Forest, Cornwall/Kent/Warren, CT', lat: 41.7877174, lng: -73.3325516, href: '445284#Wyantenock', letterboxing: true},
 	{ park: 'Birchbank Mountain Open Space, Derby, CT', lat: 41.3553276, lng: -73.1452867, more: 'Shelton Conservation Commission', href: 'http://www.sheltonconservation.org/OS/OSproperties/OS_94_Birchbank/OS_94%20Birchbank.html'},
 	
+	{ park: 'White Memorial Conservation Center LITCHFIELD, CT', lat: 41.7258461, lng: -73.2112123, href: '', complete: '', muni: true},
+	{ park: 'maples farm park bozrah ct', lat: 41.5532067, lng: -72.1726005, href: '', complete: '', muni: true},
+	{ park: 'Hansen Farm Park north haven ct', lat: 41.3823792, lng: -72.8281936, href: '', complete: '', muni: true},
+	{ park: 'Alice Newton Street Memorial Park, Woodbridge, CT', lat: 41.3592301, lng: -73.0217599, href: '', complete: '', muni: true},
+	{ park: 'Bishop Estate East & Darling House Trails Woodbridge, CT', lat: 41.3611159, lng: -72.9838854, href: '', complete: '', muni: true},
+	{ park: 'Fitzgerald Walking Trail Woodbridge, CT', lat: 41.3484994, lng: -73.0097862, href: '', complete: '', muni: true},
+	{ park: 'Racebrook Tract Parking Area, Racebrook Rd, Orange, CT', lat: 41.3033519, lng: -73.0182024, href: '', complete: '', muni: true},
+	
 	/*COMPLETED HIKES BELOW ORDERD BY DATE*/
+	{ park: 'Bethany Farms, Woodbridge, CT', lat: 41.3873088, lng: -73.0192412, href: '', complete: 'March 19, 2016', muni: true},
 	{ park: 'Southford Falls State Park, Southbury, CT', lat: 41.4598953, lng: -73.1643558, href: '325266', complete: 'February 21, 2015'},
 	{ park: 'Sleeping Giant State Park, Hamden, CT', lat: 41.4210182, lng: -72.8988523, href: '325264', complete: 'March 21, 2015', charge:1},
 	{ park: 'Pachaug State Forest, Voluntown, CT', lat: 41.5923195, lng: -71.87492089999999, href: '325068', complete: 'March 28, 2015', letterboxing: true},
