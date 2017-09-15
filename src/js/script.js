@@ -1,4 +1,3 @@
-var parks;
 var head = document.getElementsByTagName('head')[0];
 var script = document.createElement('script');
 script.type = 'text/javascript';
@@ -35,17 +34,13 @@ var _init = function() {
 	}
 		
 	function getParks( filter ) {
-		var ret = [], i, counter = {};
+		var ret = [], i;
 		
 		switch( filter ) {
 			case 'complete':
 				for( i in parks ) {
 					if( typeof( parks[i].complete ) !== 'undefined' && parks[i].complete !== '' ) {
-						if( typeof counter[ parks[i].park ] === "undefined" ) {
-							counter[ parks[i].park ] = [];
-							ret.push( parks[i] );
-						}
-						counter[ parks[i].park ].push( parks[i].complete );
+						ret.push( parks[i] );
 					}
 				}
 			break;
@@ -58,7 +53,9 @@ var _init = function() {
 			break;
 			case 'all':
 			default:
-				ret = parks;
+				for( i in parks ) {
+					ret.push( parks[i] );
+				}
 			break;
 		}
 		
