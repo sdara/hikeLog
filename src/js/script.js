@@ -35,29 +35,32 @@ var _init = function() {
 	}
 		
 	function getParks( filter ) {
-		var ret = [], i;
-		//if( typeof( filter ) !== 'undefined' ) {
-			switch( filter ) {
-				case 'complete':
-					for( i in parks ) {
-						if( typeof( parks[i].complete ) !== 'undefined' && parks[i].complete !== '' ) {
+		var ret = [], i, counter = {};
+		
+		switch( filter ) {
+			case 'complete':
+				for( i in parks ) {
+					if( typeof( parks[i].complete ) !== 'undefined' && parks[i].complete !== '' ) {
+						if( typeof counter[ parks[i].park ] === "undefined" ) {
+							counter[ parks[i].park ] = [];
 							ret.push( parks[i] );
 						}
+						counter[ parks[i].park ].push( parks[i].complete );
 					}
-				break;
-				case 'incomplete':
-					for( i in parks ) {
-						if( typeof( parks[i].complete ) === 'undefined' || parks[i].complete === '' ) {
-							ret.push( parks[i] );
-						}
+				}
+			break;
+			case 'incomplete':
+				for( i in parks ) {
+					if( typeof( parks[i].complete ) === 'undefined' || parks[i].complete === '' ) {
+						ret.push( parks[i] );
 					}
-				break;
-				case 'all':
-				default:
-					ret = parks;
-				break;
-			}
-		//}
+				}
+			break;
+			case 'all':
+			default:
+				ret = parks;
+			break;
+		}
 		
 		return ret.sort(function(a,b){
 			a = new Date(a.complete);
@@ -112,6 +115,11 @@ var _init = function() {
 		var myParks = getParks(filter);
 		
 		$( '#progress' ).text( Math.round( (getParks('complete').length / getParks('all').length ) * 100 ) );
+		var output = {
+			state: [],
+			muni: [],
+			outside: []					
+		};
 		
 		for( var i in myParks ) {
 			( function(x) {
@@ -162,9 +170,21 @@ var _init = function() {
 					}
 				}
 				
-				$('#park_list').append( '<div class="detail'+add_class+'">'+(parseInt(x,10)+1)+'. '+link+' '+date_completed+'<br/>'+note+'</div>' );
+				var section = 'state';
+				
+				if( myParks[x].muni ) {
+					section = 'muni';
+				} else if( typeof myParks[x].state !== "undefined" && myParks[x].state != "CT" ) {
+					section = 'outside';
+				}
+				
+				output[section].push('<div class="detail'+add_class+'">'+(parseInt(output[section].length,10)+1)+'. '+link+' '+date_completed+'<br/>'+note+'</div>');
+				
+				//$('#park_list').append( output.state.join('') + output.muni.join('') + output.outside.join('') );
 			}(i));
 		}
+		
+		$('#park_list').append( '<div class="detail section_header">State Parks ('+output.state.length+')</div>' + output.state.join('') + '<div class="detail section_header">Municipal Parks/Misc Trails ('+output.muni.length+')</div>' + output.muni.join('') + '<div class="detail section_header">Out of State Parks ('+output.outside.length+')</div>' + output.outside.join('') );
 	}
 	
 	$('input[type=button]').click( function() {

@@ -39,6 +39,11 @@ h3 {
 	border-bottom: 1px solid #000;
 }
 
+.section_header {
+	background-color: #ff0;
+	font-weight:bold;
+}
+
 .completed {
 	background-color: #ebebeb;
 	color: #AAA !important;
