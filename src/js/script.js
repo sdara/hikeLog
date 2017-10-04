@@ -39,14 +39,15 @@ var _init = function() {
 		switch( filter ) {
 			case 'complete':
 				for( i in parks ) {
-					if( typeof( parks[i].complete ) !== 'undefined' && parks[i].complete !== '' ) {
+					if( parks[i].completedArray.length > 0 ) {
 						ret.push( parks[i] );
 					}
 				}
 			break;
 			case 'incomplete':
 				for( i in parks ) {
-					if( typeof( parks[i].complete ) === 'undefined' || parks[i].complete === '' ) {
+					if( parks[i].completedArray.length == 0 ) {
+						console.log( parks[i].park, parks[i].completedArray.length, parks[i].completedArray.length === 0 );
 						ret.push( parks[i] );
 					}
 				}
@@ -60,8 +61,8 @@ var _init = function() {
 		}
 		
 		return ret.sort(function(a,b){
-			a = new Date(a.complete);
-			b = new Date(b.complete);
+			a = new Date(a.completedArray[a.completedArray.length-1]);
+			b = new Date(b.completedArray[b.completedArray.length-1]);
 			return a>b ? -1 : a<b ? 1 : 0;
 		});
 	}
@@ -126,7 +127,6 @@ var _init = function() {
 						position: new google.maps.LatLng(myParks[x].lat,myParks[x].lng),
 						map: map,
 						title:(parseInt(x,10)+1) + ". " + myParks[x].park,
-						//icon: ( filter == 'all' && myParks[x].complete ? 'complete_pointer.png' : (myParks[x].charge?'dollar32x32.png':(myParks[x].letterboxing?'tree24x32.png':''))),
 						animation: ''//google.maps.Animation.DROP
 					});
 					
@@ -151,8 +151,8 @@ var _init = function() {
 					note += ( note ? '<br />' : '' ) + (myParks[x].charge?'Parking Fee' : '' );
 				}
 				
-				if( typeof( myParks[x].complete ) !== 'undefined' ) {
-					date_completed = myParks[x].complete;
+				if( myParks[x].completedArray.length > 0 ) {
+					date_completed = myParks[x].completedArray[ myParks[x].completedArray.length - 1 ];
 					done = 'style=""';
 					add_class = ' completed'
 				}
@@ -176,8 +176,6 @@ var _init = function() {
 				}
 				
 				output[section].push('<div class="detail'+add_class+'">'+(parseInt(output[section].length,10)+1)+'. '+link+' '+date_completed+'<br/>'+note+'</div>');
-				
-				//$('#park_list').append( output.state.join('') + output.muni.join('') + output.outside.join('') );
 			}(i));
 		}
 		
