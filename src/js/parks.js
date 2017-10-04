@@ -150,7 +150,7 @@ var parks = {
 	"East Rock, New Haven, CT":{"park":"East Rock, New Haven, CT","lat":41.3297843,"lng":-72.9049015,"href":"","muni":true,"completedArray":["August 22, 2015"]},
 	"Farmington Reservoir, Farmington, CT":{"park":"Farmington Reservoir, Farmington, CT","lat":41.7107759,"lng":-72.8288467,"href":"","muni":true,"completedArray":["August 23, 2015"]},
 	"Devil's Den Preserve, Weston, CT":{"park":"Devil's Den Preserve, Weston, CT","lat":41.2368966,"lng":-73.4133483,"href":"","muni":true,"completedArray":["September 06, 2015"]},
-	"Westwoods, Guilford, CT":{"park":"Westwoods, Guilford, CT","lat":41.2694978,"lng":-72.6978841,"href":"","muni":true,"completedArray":["September 19, 2015"]},
+	"Westwoods, Guilford, CT":{"park":"Westwoods, Guilford, CT","lat":41.2694978,"lng":-72.6978841,"href":"","muni":true,"completedArray":["September 19, 2015","July 29, 2017"]},
 	"Giuffrida Park, Meriden, CT":{"park":"Giuffrida Park, Meriden, CT","lat":41.5702103,"lng":-72.7599575,"href":"","muni":true,"completedArray":["September 20, 2015"]},
 	"Dinosaur State Park and Arboretum, Rocky Hill, CT":{"park":"Dinosaur State Park and Arboretum, Rocky Hill, CT","lat":41.6525086,"lng":-72.6576323,"href":"","completedArray":["September 26, 2015"]},
 	"Downs Rd/Regional Water Authority, Hamden, CT":{"park":"Downs Rd/Regional Water Authority, Hamden, CT","lat":41.4390548,"lng":-72.9543096,"href":"","muni":true,"completedArray":["September 27, 2015"]},
